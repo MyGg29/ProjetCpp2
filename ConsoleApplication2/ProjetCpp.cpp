@@ -13,6 +13,7 @@ int main()
 	sf::RectangleShape rectangle;
 	window.setFramerateLimit(60);
 	Snake snake;
+	snake.speed = 0;
     // run the program as long as the window is open
     while (window.isOpen())
     {
@@ -23,23 +24,24 @@ int main()
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
                 window.close();
-			if (event.type == sf::Event::KeyPressed) {
+
+			if (event.type == sf::Event::KeyPressed)
+			{
 				switch (event.key.code)
 				{
-				case sf::Keyboard::Up:
-					snake.directionOfMovement = Snake::Direction::up;
-					break;
-				case sf::Keyboard::Right:
-					snake.directionOfMovement = Snake::Direction::right;
-					break;
-				case sf::Keyboard::Down:
-					snake.directionOfMovement = Snake::Direction::down;
-					break;
-				case sf::Keyboard::Left:
-					snake.directionOfMovement = Snake::Direction::left;
-					break;
-				default:
-					break;
+					case sf::Keyboard::Up:
+						snake.instructionDirection = Snake::Direction::up;
+						break;
+					case sf::Keyboard::Right:
+						snake.instructionDirection = Snake::Direction::right;
+						if (snake.speed == 0) snake.speed = 1;
+						break;
+					case sf::Keyboard::Down:
+						snake.instructionDirection = Snake::Direction::down;
+						break;
+					case sf::Keyboard::Left:
+						snake.instructionDirection = Snake::Direction::left;
+						break;
 				}
 			}
         }
