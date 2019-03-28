@@ -10,9 +10,8 @@
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(600, 600), "My window");
-	sf::RectangleShape rectangle;
 	window.setFramerateLimit(60);
-	Snake snake;
+	Snake snake(&window);
     // run the program as long as the window is open
     while (window.isOpen())
     {
@@ -27,28 +26,28 @@ int main()
 				switch (event.key.code)
 				{
 				case sf::Keyboard::Up:
-					snake.directionOfMovement = Snake::Direction::up;
+					snake.setDirection(Snake::Direction::Up);
 					break;
 				case sf::Keyboard::Right:
-					snake.directionOfMovement = Snake::Direction::right;
+					snake.setDirection(Snake::Direction::Right);
 					break;
 				case sf::Keyboard::Down:
-					snake.directionOfMovement = Snake::Direction::down;
+					snake.setDirection(Snake::Direction::Down);
 					break;
 				case sf::Keyboard::Left:
-					snake.directionOfMovement = Snake::Direction::left;
+					snake.setDirection(Snake::Direction::Left);
 					break;
+				case sf::Keyboard::A:
+					snake.increaseSize();
 				default:
 					break;
 				}
 			}
         }
+		snake.move();
 
-		snake.update();
 		window.clear();
-		window.draw(snake.getBodyPart());
-		window.draw(snake.getAllBodyParts()[0]);
-		window.draw(snake.getAllBodyParts()[1]);
+		snake.draw();
 		window.display();
     }
     return 0;
