@@ -45,10 +45,12 @@ int main()
 			}
         }
 		snake.move();
-
 		window.clear();
 		snake.draw();
 		window.display();
+		if (snake.isDead) {
+			break;
+		}
     }
     return 0;
 }

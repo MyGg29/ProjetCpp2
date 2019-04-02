@@ -20,11 +20,19 @@ void Snake::draw() {
 	}
 }
 
+bool isDead() {
+	return true;
+}
+
 void Snake::move()
 {
 	cpteur++;
-	if (body.size() > 1 && cpteur >= 20)
+	if (body.size() > 1)
 	{
+		//don't really work
+		//for (auto rectangle : body) {
+		//	isDead = checkCollision(rectangle, body.front());
+		//}
 		cpteur = 0;
 		for (int i = body.size() - 1; i > 0; i--)
 		{
@@ -63,6 +71,11 @@ void Snake::move()
 		body.front().setPosition(body.front().getPosition().x, 0);
 	}
 }
+
+bool Snake::checkCollision(sf::RectangleShape a, sf::RectangleShape b) {
+	return a.getGlobalBounds().intersects(b.getGlobalBounds());
+}
+
 
 void Snake::increaseSize() {
 	sf::RectangleShape newPart;

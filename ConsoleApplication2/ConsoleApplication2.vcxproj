@@ -162,6 +162,7 @@
   <ItemGroup>
     <ClInclude Include="pch.h" />
     <ClInclude Include="Snake.h" />
+    <ClInclude Include="Util.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ProjetCpp.cpp" />

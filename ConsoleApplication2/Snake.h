@@ -11,14 +11,15 @@ public:
 	void move();
 	void draw();
 	void setDirection(Direction direction);
+	bool isDead;
 
 private:
-	Direction directionOfMovement = Direction::Right;
 	sf::RenderWindow *screen;
-	Direction lastDirection = Direction::Right;
+	std::vector<sf::RectangleShape> body;
+	Direction directionOfMovement = Direction::Right;
 	int length;
 	int speed;
-	std::vector<sf::RectangleShape> body;
 	int cpteur = 0;
+	bool checkCollision(sf::RectangleShape a, sf::RectangleShape b);
 
 };
