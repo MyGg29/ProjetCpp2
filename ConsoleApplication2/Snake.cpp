@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "Snake.h"
+#include "Util.h"
 
 Snake::Snake(sf::RenderWindow *w)
 {
@@ -20,42 +21,44 @@ void Snake::draw() {
 	}
 }
 
-bool isDead() {
-	return true;
-}
-
 void Snake::move()
 {
-	cpteur++;
 	if (body.size() > 1)
 	{
-		//don't really work
-		//for (auto rectangle : body) {
-		//	isDead = checkCollision(rectangle, body.front());
-		//}
-		cpteur = 0;
+		//moves the rest of the body
 		for (int i = body.size() - 1; i > 0; i--)
 		{
 			//Chaque partie du corps prend la place de celui qui est devant lui
 			body[i].setPosition(body[i - 1].getPosition().x, body[i - 1].getPosition().y);
 		}
 	}
+	//moves the head
 	switch (directionOfMovement)
 	{
 	case Snake::Up:
-		body.front().move(0, -1);
+		body.front().move(0, -20);
 		break;
 	case Snake::Right:
-		body.front().move(1, 0);
+		body.front().move(20, 0);
 		break;
 	case Snake::Down:
-		body.front().move(0, 1);
+		body.front().move(0, 20);
 		break;
 	case Snake::Left:
-		body.front().move(-1, 0);
+		body.front().move(-20, 0);
 		break;
 	default:
 		break;
+	}
+	//We can't die if we are length 1, nor 2
+	if (body.size() > 2) {
+		//if the head is touching a body part
+		for(int i = 1; i < body.size(); i++){
+			isDead = Util::checkCollision(body.front(), body[i]);
+			if (isDead == true) {
+				break;
+			}
+		}
 	}
 	//clip
 	if (body.front().getPosition().x < 0){
@@ -72,10 +75,6 @@ void Snake::move()
 	}
 }
 
-bool Snake::checkCollision(sf::RectangleShape a, sf::RectangleShape b) {
-	return a.getGlobalBounds().intersects(b.getGlobalBounds());
-}
-
 
 void Snake::increaseSize() {
 	sf::RectangleShape newPart;
@@ -90,4 +89,9 @@ void Snake::increaseSize() {
 
 void Snake::setDirection(Direction d) {
 	directionOfMovement = d;
+}
+
+sf::FloatRect Snake::getHeadHitbox()
+{
+	return body.front().getGlobalBounds();
 }

@@ -6,12 +6,15 @@
 
 #include <SFML/Window.hpp>
 #include "Snake.h"
+#include "Board.h"
 
 int main()
 {
     sf::RenderWindow window(sf::VideoMode(600, 600), "My window");
 	window.setFramerateLimit(60);
-	Snake snake(&window);
+	sf::Clock clock;
+	Board board(&window);
+
     // run the program as long as the window is open
     while (window.isOpen())
     {
@@ -22,33 +25,14 @@ int main()
             // "close requested" event: we close the window
             if (event.type == sf::Event::Closed)
                 window.close();
-			if (event.type == sf::Event::KeyPressed) {
-				switch (event.key.code)
-				{
-				case sf::Keyboard::Up:
-					snake.setDirection(Snake::Direction::Up);
-					break;
-				case sf::Keyboard::Right:
-					snake.setDirection(Snake::Direction::Right);
-					break;
-				case sf::Keyboard::Down:
-					snake.setDirection(Snake::Direction::Down);
-					break;
-				case sf::Keyboard::Left:
-					snake.setDirection(Snake::Direction::Left);
-					break;
-				case sf::Keyboard::A:
-					snake.increaseSize();
-				default:
-					break;
-				}
-			}
+			board.handleKeyEvent(event);
         }
-		snake.move();
+		//we pass the clock so that the board knows how much time passed since the last frame
+		board.update(&clock);
 		window.clear();
-		snake.draw();
+		board.draw();
 		window.display();
-		if (snake.isDead) {
+		if (board.isGameOver()) {
 			break;
 		}
     }
