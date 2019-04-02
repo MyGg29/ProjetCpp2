@@ -1,12 +1,11 @@
 #include "pch.h"
 #include "Food.h"
 
-Food::Food(sf::RenderWindow *w)
+Food::Food()
 {
-	screen = w;
 	food.setRadius(10);
 	food.setFillColor(sf::Color::Red);
-	food.setPosition(50, 50);
+	food.setPosition(20, 20);
 }
 
 sf::FloatRect Food::getFoodHitbox()
@@ -14,7 +13,14 @@ sf::FloatRect Food::getFoodHitbox()
 	return food.getGlobalBounds();
 }
 
-void Food::draw()
+void Food::setNewRandomPosition(int xBound, int yBound)
+{
+	float newXposition = rand() % xBound;
+	float newYposition = rand() % yBound;
+	food.setPosition(newXposition, newYposition);
+}
+
+void Food::draw(sf::RenderWindow *screen)
 {
 	screen->draw(food);
 }

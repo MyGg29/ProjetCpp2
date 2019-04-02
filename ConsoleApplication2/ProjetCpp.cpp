@@ -1,6 +1,3 @@
-// ConsoleApplication2.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
-
 #include "pch.h"
 #include <SFML/Graphics.hpp>    
 
@@ -13,7 +10,7 @@ int main()
     sf::RenderWindow window(sf::VideoMode(600, 600), "My window");
 	window.setFramerateLimit(60);
 	sf::Clock clock;
-	Board board(&window);
+	Board board;
 
     // run the program as long as the window is open
     while (window.isOpen())
@@ -30,7 +27,7 @@ int main()
 		//we pass the clock so that the board knows how much time passed since the last frame
 		board.update(&clock);
 		window.clear();
-		board.draw();
+		board.draw(&window);
 		window.display();
 		if (board.isGameOver()) {
 			break;

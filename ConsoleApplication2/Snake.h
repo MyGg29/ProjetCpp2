@@ -5,16 +5,15 @@
 class Snake {
 public:
 	enum Direction {Up, Right, Down, Left};
-	Snake(sf::RenderWindow *w);
+	Snake();
 	void increaseSize();
 	void move();
-	void draw();
+	void draw(sf::RenderWindow *w);
 	void setDirection(Direction direction);
 	bool isDead;
 	sf::FloatRect getHeadHitbox();
 
 private:
-	sf::RenderWindow *screen;
 	std::vector<sf::RectangleShape> body;
 	Direction directionOfMovement = Direction::Right;
 	int length;

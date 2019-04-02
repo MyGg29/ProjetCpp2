@@ -2,9 +2,8 @@
 #include "Snake.h"
 #include "Util.h"
 
-Snake::Snake(sf::RenderWindow *w)
+Snake::Snake()
 {
-	screen = w;
 	length = 1;
 	for (int i = 0; i < length; i++) {
 		sf::RectangleShape e;
@@ -15,7 +14,7 @@ Snake::Snake(sf::RenderWindow *w)
 	}
 }
 
-void Snake::draw() {
+void Snake::draw(sf::RenderWindow *screen) {
 	for (int i = 0; i < length; i++) {
 		screen->draw(body[i]);
 	}

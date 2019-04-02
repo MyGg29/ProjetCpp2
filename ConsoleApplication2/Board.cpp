@@ -1,9 +1,8 @@
 #include "pch.h"
 #include "Board.h"
 
-Board::Board(sf::RenderWindow *w) : snake(w), food(w)
+Board::Board() 
 {
-	screen = w;
 }
 
 void Board::handleKeyEvent(sf::Event event)
@@ -25,10 +24,17 @@ void Board::handleKeyEvent(sf::Event event)
 			break;
 		case sf::Keyboard::A:
 			snake.increaseSize();
+		case sf::Keyboard::Escape:
+			pause = !pause;
 		default:
 			break;
 		}
 	}
+}
+
+bool Board::isPaused()
+{
+	return pause;
 }
 
 bool Board::isGameOver()
@@ -39,22 +45,20 @@ bool Board::isGameOver()
 void Board::update(sf::Clock *clock) {
 	float elapsedSeconds = (*clock).getElapsedTime().asSeconds();
 	//should we move the snake ?
-	if (elapsedSeconds > 1) {
+	if (elapsedSeconds > 1/gameSpeed) {
 		//we move the snake every second.
 		//this makes us independent of the framerate
 		snake.move();
 		if (Util::checkCollision(snake, food)) {
 			snake.increaseSize();
+			food.setNewRandomPosition(100,100);
+			gameSpeed += 0.5;
 		}
 		clock->restart();
 	}
 }
 
-void Board::draw() {
-	snake.draw();
-	food.draw();
-}
-
-void Board::setSnake(Snake snake)
-{
+void Board::draw(sf::RenderWindow *screen) {
+	snake.draw(screen);
+	food.draw(screen);
 }

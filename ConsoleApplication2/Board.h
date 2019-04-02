@@ -6,17 +6,16 @@
 
 class Board {
 public:
-	Board(sf::RenderWindow *w);
+	Board();
 	void handleKeyEvent(sf::Event event);
-	void setSnake(Snake snake);
-	void draw();
-	int gameSpeed;
+	void draw(sf::RenderWindow *w);
+	float gameSpeed = 5;
 	bool isPaused();
 	bool isGameOver();
 	void update(sf::Clock *clock);
 
 private:
-	sf::RenderWindow *screen;
 	Snake snake;
 	Food food;
+	bool pause = false;
 };

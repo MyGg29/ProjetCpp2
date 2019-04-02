@@ -13,42 +13,57 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Source Files\GameScreen">
+      <UniqueIdentifier>{2c09ac17-2ac3-482d-bd3e-09083cc38ec1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\MenuScreen">
+      <UniqueIdentifier>{b23e96ae-a64e-4bb0-a5e6-b033ce4bdccc}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Snake.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="Util.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Food.h">
-      <Filter>Source Files</Filter>
+    <ClInclude Include="GameScreen.h">
+      <Filter>Source Files\GameScreen</Filter>
     </ClInclude>
     <ClInclude Include="Board.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GameScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="cScreen.h">
+      <Filter>Source Files\GameScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="Food.h">
+      <Filter>Source Files\GameScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="Snake.h">
+      <Filter>Source Files\GameScreen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ProjetCpp.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Snake.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="Util.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Board.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GameScreen</Filter>
     </ClCompile>
     <ClCompile Include="Food.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\GameScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="ProjetCpp.cpp">
+      <Filter>Source Files\GameScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="Snake.cpp">
+      <Filter>Source Files\GameScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="GameScreen.cpp">
+      <Filter>Source Files\GameScreen</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
