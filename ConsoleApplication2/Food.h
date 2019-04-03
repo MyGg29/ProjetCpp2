@@ -4,10 +4,12 @@
 
 class Food {
 public:
-	Food();
+	Food(int windowSize, int gridSize);
 	sf::FloatRect getFoodHitbox();
-	void setNewRandomPosition(int xBound, int yBound);
+	void setNewRandomPosition();
 	void draw(sf::RenderWindow *w);
+	int gridSize;
+	int windowSize;
 private:
 	sf::CircleShape food;
 };

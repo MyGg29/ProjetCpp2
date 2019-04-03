@@ -4,7 +4,7 @@
 #include <iostream>
 
 
-Board::Board():snake(windowSize, gridSize)
+Board::Board():snake(windowSize, gridSize),food(windowSize, gridSize)
 {
 }
 
@@ -72,7 +72,7 @@ void Board::update(sf::Clock *clock) {
 		if (!pause) { snake.move(); }
 		if (Util::checkCollision(snake, food)) {
 			snake.increaseSize();
-			food.setNewRandomPosition(100,100);
+			food.setNewRandomPosition();
 			gameSpeed += 0.5;
 		}
 		clock->restart();

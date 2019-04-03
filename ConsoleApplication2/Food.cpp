@@ -1,11 +1,13 @@
 #include "pch.h"
 #include "Food.h"
 
-Food::Food()
+Food::Food(int windowSizeP, int gridSizeP)
 {
+	windowSize = windowSizeP;
+	gridSize = gridSizeP;
 	food.setRadius(10);
 	food.setFillColor(sf::Color::Red);
-	food.setPosition(20, 20);
+	food.setPosition(gridSize, gridSize);
 }
 
 sf::FloatRect Food::getFoodHitbox()
@@ -13,10 +15,10 @@ sf::FloatRect Food::getFoodHitbox()
 	return food.getGlobalBounds();
 }
 
-void Food::setNewRandomPosition(int xBound, int yBound)
+void Food::setNewRandomPosition()
 {
-	float newXposition = rand() % xBound;
-	float newYposition = rand() % yBound;
+	float newXposition = (rand() % windowSize/gridSize) * gridSize;
+	float newYposition = (rand() % windowSize/gridSize) * gridSize;
 	food.setPosition(newXposition, newYposition);
 }
 
