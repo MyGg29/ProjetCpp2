@@ -1,7 +1,9 @@
 #include "pch.h"
 #include "Board.h"
+#include "Snake.h"
+#include <iostream>
 
-Board::Board() 
+Board::Board():snake(windowSize, gridSize)
 {
 }
 
@@ -11,23 +13,25 @@ void Board::handleKeyEvent(sf::Event event)
 		switch (event.key.code)
 		{
 		case sf::Keyboard::Up:
-			snake.setDirection(Snake::Direction::Up);
+			if (snake.getDirection() != Snake::Direction::Down)
+				snake.setDirection(Snake::Direction::Up);
 			break;
 		case sf::Keyboard::Right:
-			snake.setDirection(Snake::Direction::Right);
+			if (snake.getDirection() != Snake::Direction::Left)
+				snake.setDirection(Snake::Direction::Right);
 			break;
 		case sf::Keyboard::Down:
-			snake.setDirection(Snake::Direction::Down);
+			if (snake.getDirection() != Snake::Direction::Up)
+				snake.setDirection(Snake::Direction::Down);
 			break;
 		case sf::Keyboard::Left:
-			snake.setDirection(Snake::Direction::Left);
+			if (snake.getDirection() != Snake::Direction::Right)
+				snake.setDirection(Snake::Direction::Left);
 			break;
 		case sf::Keyboard::A:
 			snake.increaseSize();
 		case sf::Keyboard::Escape:
 			pause = !pause;
-		default:
-			break;
 		}
 	}
 }
