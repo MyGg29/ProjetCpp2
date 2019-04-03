@@ -13,6 +13,7 @@ public:
 	bool isPaused();
 	bool isGameOver();
 	void update(sf::Clock *clock);
+	float getScore();
 
 private:
 	Snake snake;

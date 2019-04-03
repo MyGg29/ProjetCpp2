@@ -94,3 +94,8 @@ sf::FloatRect Snake::getHeadHitbox()
 {
 	return body.front().getGlobalBounds();
 }
+
+int Snake::getLength()
+{
+	return length;
+}

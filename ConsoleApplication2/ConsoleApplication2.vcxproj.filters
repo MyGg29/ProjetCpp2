@@ -19,6 +19,12 @@
     <Filter Include="Source Files\MenuScreen">
       <UniqueIdentifier>{b23e96ae-a64e-4bb0-a5e6-b033ce4bdccc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\GameScreen">
+      <UniqueIdentifier>{e00e3d30-2544-4a3b-a2e6-7720443c2b95}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\MenuScreen">
+      <UniqueIdentifier>{646a09d9-aba5-43d6-b3ce-e85bfd999e31}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -27,20 +33,26 @@
     <ClInclude Include="Util.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="GameScreen.h">
-      <Filter>Source Files\GameScreen</Filter>
-    </ClInclude>
-    <ClInclude Include="Board.h">
-      <Filter>Source Files\GameScreen</Filter>
+    <ClInclude Include="saveScoreOverlay.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="cScreen.h">
-      <Filter>Source Files\GameScreen</Filter>
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Board.h">
+      <Filter>Header Files\GameScreen</Filter>
     </ClInclude>
     <ClInclude Include="Food.h">
-      <Filter>Source Files\GameScreen</Filter>
+      <Filter>Header Files\GameScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="GameScreen.h">
+      <Filter>Header Files\GameScreen</Filter>
     </ClInclude>
     <ClInclude Include="Snake.h">
-      <Filter>Source Files\GameScreen</Filter>
+      <Filter>Header Files\GameScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="MenuScreen.h">
+      <Filter>Header Files\MenuScreen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -65,5 +77,16 @@
     <ClCompile Include="GameScreen.cpp">
       <Filter>Source Files\GameScreen</Filter>
     </ClCompile>
+    <ClCompile Include="MenuScreen.cpp">
+      <Filter>Source Files\MenuScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="saveScoreOverlay.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="arial.ttf">
+      <Filter>Source Files</Filter>
+    </Font>
   </ItemGroup>
 </Project>

@@ -12,6 +12,7 @@ public:
 	void setDirection(Direction direction);
 	bool isDead;
 	sf::FloatRect getHeadHitbox();
+	int getLength();
 
 private:
 	std::vector<sf::RectangleShape> body;
