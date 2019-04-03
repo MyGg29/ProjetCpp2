@@ -13,7 +13,7 @@ SaveScoreOverlay::SaveScoreOverlay()
 		gameOverMessage.setFillColor(sf::Color::Red);
 	}
 	else {
-		throw std::exception("Font failled to load");
+		//throw std::exception("Font failled to load");
 	}
 
 }

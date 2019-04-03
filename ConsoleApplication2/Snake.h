@@ -4,7 +4,7 @@
 
 class Snake {
 public:
-	enum Direction {Up, Right, Down, Left};
+	enum Direction {Up, Right, Down, Left, Stop};
 	Snake();
 	void increaseSize();
 	void move();
@@ -13,6 +13,8 @@ public:
 	bool isDead;
 	sf::FloatRect getHeadHitbox();
 	int getLength();
+	Direction lastDir;
+	Direction getDirection();
 
 private:
 	std::vector<sf::RectangleShape> body;

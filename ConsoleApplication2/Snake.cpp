@@ -50,7 +50,7 @@ void Snake::move()
 		break;
 	}
 	//We can't die if we are length 1, nor 2
-	if (body.size() > 2) {
+	if (body.size() > 2 || directionOfMovement!=Snake::Direction::Stop) {
 		//if the head is touching a body part
 		for(int i = 1; i < body.size(); i++){
 			isDead = Util::checkCollision(body.front(), body[i]);
@@ -98,4 +98,9 @@ sf::FloatRect Snake::getHeadHitbox()
 int Snake::getLength()
 {
 	return length;
+}
+
+Snake::Direction Snake::getDirection()
+{
+	return directionOfMovement;
 }
