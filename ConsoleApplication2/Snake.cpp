@@ -2,13 +2,15 @@
 #include "Snake.h"
 #include "Util.h"
 
-Snake::Snake()
+Snake::Snake(int windowSizeP, int gridSizeP)
 {
+	windowSize = windowSizeP;
+	gridSize = gridSizeP;
 	length = 1;
 	for (int i = 0; i < length; i++) {
 		sf::RectangleShape e;
 		e.setFillColor(sf::Color::Blue);
-		e.setSize(sf::Vector2f(20, 20));
+		e.setSize(sf::Vector2f(gridSize, gridSize));
 		e.setPosition(200,200);
 		body.push_back(e);
 	}
@@ -35,16 +37,16 @@ void Snake::move()
 	switch (directionOfMovement)
 	{
 	case Snake::Up:
-		body.front().move(0, -20);
+		body.front().move(0, -gridSize);
 		break;
 	case Snake::Right:
-		body.front().move(20, 0);
+		body.front().move(gridSize, 0);
 		break;
 	case Snake::Down:
-		body.front().move(0, 20);
+		body.front().move(0, gridSize);
 		break;
 	case Snake::Left:
-		body.front().move(-20, 0);
+		body.front().move(-gridSize, 0);
 		break;
 	default:
 		break;
@@ -59,18 +61,22 @@ void Snake::move()
 			}
 		}
 	}
-	//clip
+	//GameOver condition
 	if (body.front().getPosition().x < 0){
-		body.front().setPosition(600, body.front().getPosition().y);
+		Snake::isDead = true;
+		//body.front().setPosition(windowSize, body.front().getPosition().y);
 	}
-	if (body.front().getPosition().x > 600) {
-		body.front().setPosition(0, body.front().getPosition().y);
+	if (body.front().getPosition().x > windowSize) {
+		Snake::isDead = true;
+		//body.front().setPosition(0, body.front().getPosition().y);
 	}
 	if (body.front().getPosition().y < 0){
-		body.front().setPosition(body.front().getPosition().x, 600);
+		Snake::isDead = true;
+		//body.front().setPosition(body.front().getPosition().x, windowSize);
 	}
-	if (body.front().getPosition().y > 600) {
-		body.front().setPosition(body.front().getPosition().x, 0);
+	if (body.front().getPosition().y > windowSize) {
+		Snake::isDead = true;
+		//body.front().setPosition(body.front().getPosition().x, 0);
 	}
 }
 
@@ -78,7 +84,7 @@ void Snake::move()
 void Snake::increaseSize() {
 	sf::RectangleShape newPart;
 	newPart.setFillColor(sf::Color::Red);
-	newPart.setSize(sf::Vector2f(20	, 20));
+	newPart.setSize(sf::Vector2f(gridSize, gridSize));
 	sf::Vector2f newPosition(body.back().getPosition().x ,body.back().getPosition().y);
 	newPart.setPosition(newPosition);
 
@@ -89,6 +95,11 @@ void Snake::increaseSize() {
 void Snake::setDirection(Direction d) {
 	directionOfMovement = d;
 }
+
+Snake::Direction Snake::getDirection() {
+	return directionOfMovement;
+}
+
 
 sf::FloatRect Snake::getHeadHitbox()
 {

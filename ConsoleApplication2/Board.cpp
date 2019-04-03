@@ -1,8 +1,12 @@
 #include "pch.h"
 #include "Board.h"
 #include "Snake.h"
+<<<<<<< HEAD
+=======
+#include <iostream>
+>>>>>>> 4e6f04acde5ee037de28bf3b211aeeff734c3a1d
 
-Board::Board() 
+Board::Board():snake(windowSize, gridSize)
 {
 }
 
@@ -12,6 +16,7 @@ void Board::handleKeyEvent(sf::Event event)
 		switch (event.key.code)
 		{
 		case sf::Keyboard::Up:
+<<<<<<< HEAD
 			snake.setDirection(Snake::Direction::Up);
 			snake.lastDir = snake.getDirection();
 			break;
@@ -26,12 +31,29 @@ void Board::handleKeyEvent(sf::Event event)
 		case sf::Keyboard::Left:
 			snake.setDirection(Snake::Direction::Left);
 			snake.lastDir = snake.getDirection();
+=======
+			if (snake.getDirection() != Snake::Direction::Down)
+				snake.setDirection(Snake::Direction::Up);
+			break;
+		case sf::Keyboard::Right:
+			if (snake.getDirection() != Snake::Direction::Left)
+				snake.setDirection(Snake::Direction::Right);
+			break;
+		case sf::Keyboard::Down:
+			if (snake.getDirection() != Snake::Direction::Up)
+				snake.setDirection(Snake::Direction::Down);
+			break;
+		case sf::Keyboard::Left:
+			if (snake.getDirection() != Snake::Direction::Right)
+				snake.setDirection(Snake::Direction::Left);
+>>>>>>> 4e6f04acde5ee037de28bf3b211aeeff734c3a1d
 			break;
 		case sf::Keyboard::A:
 			snake.increaseSize();
 			break;
 		case sf::Keyboard::Escape:
 			pause = !pause;
+<<<<<<< HEAD
 			if (pause) {
 				snake.setDirection(Snake::Direction::Stop);
 			}
@@ -41,6 +63,8 @@ void Board::handleKeyEvent(sf::Event event)
 			break;
 		default:
 			break;
+=======
+>>>>>>> 4e6f04acde5ee037de28bf3b211aeeff734c3a1d
 		}
 	}
 }

@@ -5,14 +5,17 @@
 class Snake {
 public:
 	enum Direction {Up, Right, Down, Left, Stop};
-	Snake();
+	Snake(int windowSize, int gridSize);
 	void increaseSize();
 	void move();
 	void draw(sf::RenderWindow *w);
 	void setDirection(Direction direction);
+	Direction getDirection();
 	bool isDead;
 	sf::FloatRect getHeadHitbox();
 	int getLength();
+	int gridSize;
+	int windowSize;
 	Direction lastDir;
 	Direction getDirection();
 

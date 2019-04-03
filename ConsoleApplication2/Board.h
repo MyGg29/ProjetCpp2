@@ -10,6 +10,8 @@ public:
 	void handleKeyEvent(sf::Event event);
 	void draw(sf::RenderWindow *w);
 	float gameSpeed = 5;
+	int windowSize = 600;
+	int gridSize = 20;
 	bool isPaused();
 	bool isGameOver();
 	void update(sf::Clock *clock);
