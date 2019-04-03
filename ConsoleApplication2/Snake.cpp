@@ -110,8 +110,3 @@ int Snake::getLength()
 {
 	return length;
 }
-
-Snake::Direction Snake::getDirection()
-{
-	return directionOfMovement;
-}

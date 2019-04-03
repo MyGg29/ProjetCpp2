@@ -17,7 +17,6 @@ public:
 	int gridSize;
 	int windowSize;
 	Direction lastDir;
-	Direction getDirection();
 
 private:
 	std::vector<sf::RectangleShape> body;
