@@ -7,3 +7,4 @@ bool Util::checkCollision(sf::RectangleShape a, sf::RectangleShape b){
 bool Util::checkCollision(Snake snake, Food food) {
 	return snake.getHeadHitbox().intersects(food.getFoodHitbox());
 }
+

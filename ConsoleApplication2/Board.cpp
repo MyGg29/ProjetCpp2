@@ -66,7 +66,15 @@ float Board::getScore()
 	return score;
 }
 
-void Board::draw(sf::RenderWindow *screen) {
-	snake.draw(screen);
-	food.draw(screen);
+void Board::reset()
+{
+	snake = Snake();
+	food = Food();
 }
+
+void Board::draw(sf::RenderTarget& target, sf::RenderStates states) const
+{
+	target.draw(snake);
+	target.draw(food);
+}
+

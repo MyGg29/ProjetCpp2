@@ -25,6 +25,12 @@
     <Filter Include="Header Files\MenuScreen">
       <UniqueIdentifier>{646a09d9-aba5-43d6-b3ce-e85bfd999e31}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Autre">
+      <UniqueIdentifier>{44267d13-117a-442f-83aa-52cedf94f04b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\Autre">
+      <UniqueIdentifier>{91307e3c-9f44-49c5-a1ab-ce53c36613ce}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="pch.h">
@@ -57,21 +63,18 @@
     <ClInclude Include="resource.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Button.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Util.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Board.cpp">
       <Filter>Source Files\GameScreen</Filter>
     </ClCompile>
     <ClCompile Include="Food.cpp">
-      <Filter>Source Files\GameScreen</Filter>
-    </ClCompile>
-    <ClCompile Include="ProjetCpp.cpp">
       <Filter>Source Files\GameScreen</Filter>
     </ClCompile>
     <ClCompile Include="Snake.cpp">
@@ -86,10 +89,22 @@
     <ClCompile Include="saveScoreOverlay.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="ProjetCpp.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Util.cpp">
+      <Filter>Source Files\Autre</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Font Include="arial.ttf">
       <Filter>Resource Files</Filter>
+    </Font>
+    <Font Include="..\..\..\..\Downloads\arial.ttf">
+      <Filter>Source Files</Filter>
     </Font>
   </ItemGroup>
 </Project>

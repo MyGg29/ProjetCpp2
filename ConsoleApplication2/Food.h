@@ -2,12 +2,12 @@
 #include <SFML\Graphics.hpp>
 #include <cstdlib>
 
-class Food {
+class Food : public sf::Drawable {
 public:
 	Food();
 	sf::FloatRect getFoodHitbox();
 	void setNewRandomPosition(int xBound, int yBound);
-	void draw(sf::RenderWindow *w);
 private:
+	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	sf::CircleShape food;
 };

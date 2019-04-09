@@ -2,19 +2,19 @@
 #include <SFML/Graphics.hpp>    
 
 
-class Snake {
+class Snake : public sf::Drawable{
 public:
 	enum Direction {Up, Right, Down, Left};
 	Snake();
 	void increaseSize();
 	void move();
-	void draw(sf::RenderWindow *w);
 	void setDirection(Direction direction);
-	bool isDead;
+	bool isDead = false;
 	sf::FloatRect getHeadHitbox();
 	int getLength();
 
 private:
+	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;
 	std::vector<sf::RectangleShape> body;
 	Direction directionOfMovement = Direction::Right;
 	int length;
