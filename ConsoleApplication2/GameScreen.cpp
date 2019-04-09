@@ -24,11 +24,10 @@ int GameScreen::Run(sf::RenderWindow &App)
 			Running = false;
 		}
 	}
-	while (true) {
-		float score = board.getScore();
-		SaveScoreOverlay so;
-		so.draw(&App);
-		App.display();
-	}
+	float score = board.getScore();
+	SaveScoreOverlay so;
+	so.draw(&App);
+	App.display();
+	while(true){}
 
 }

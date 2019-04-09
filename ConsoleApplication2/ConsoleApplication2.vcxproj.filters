@@ -54,6 +54,9 @@
     <ClInclude Include="MenuScreen.h">
       <Filter>Header Files\MenuScreen</Filter>
     </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -86,7 +89,7 @@
   </ItemGroup>
   <ItemGroup>
     <Font Include="arial.ttf">
-      <Filter>Source Files</Filter>
+      <Filter>Resource Files</Filter>
     </Font>
   </ItemGroup>
 </Project>

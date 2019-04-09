@@ -1,11 +1,11 @@
 #include "pch.h"
 #include "saveScoreOverlay.h"
-
+#include <iostream>
 
 SaveScoreOverlay::SaveScoreOverlay()
 {
 	sf::Font font;
-	bool success = font.loadFromFile("arial.ttf");
+	bool success = font.loadFromFile("C:\\arial.ttf");
 	if (success) {
 		gameOverMessage = sf::Text("Test", font);
 		gameOverMessage.setCharacterSize(30);
@@ -23,7 +23,7 @@ SaveScoreOverlay::~SaveScoreOverlay()
 {
 }
 
-void SaveScoreOverlay::draw(sf::RenderWindow * w)
+void SaveScoreOverlay::draw(sf::RenderWindow *w)
 {
 	w->draw(gameOverMessage);
 }
