@@ -4,7 +4,7 @@
 #include "Food.h"
 #include "Util.h"
 
-class Board : sf::Drawable {
+class Board : public sf::Drawable {
 public:
 	Board();
 	void handleKeyEvent(sf::Event event);

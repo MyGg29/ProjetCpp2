@@ -10,7 +10,7 @@ int GameScreen::Run(sf::RenderWindow &App)
 	bool Running = true;
 	sf::Event event;
 	sf::Clock clock;
-	SaveScoreOverlay so;
+	GameOverOverlay so;
 	while (Running) {
 		App.clear();
 		while (App.pollEvent(event)) {
@@ -20,17 +20,18 @@ int GameScreen::Run(sf::RenderWindow &App)
 			so.handleEvent(event);
 		}
 		if (board.isGameOver()) {
-			float score = board.getScore();
+			int score = board.getScore();
+			so.setScoreAAfficher(std::to_string(score));
 			if (so.restartGame) {
 				board.reset();
 				so.restartGame = false;
 			}
-			so.draw(&App);
+			App.draw(so);
 		}
 		else {
 			board.update(&clock);
 		}
-		board.draw(&App);
+		App.draw(board);
 		App.display();
 	}
 }

@@ -39,9 +39,6 @@
     <ClInclude Include="Util.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="saveScoreOverlay.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="cScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -64,7 +61,10 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Button.h">
-      <Filter>Header Files</Filter>
+      <Filter>Header Files\Autre</Filter>
+    </ClInclude>
+    <ClInclude Include="GameOverOverlay.h">
+      <Filter>Header Files\GameScreen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -86,9 +86,6 @@
     <ClCompile Include="MenuScreen.cpp">
       <Filter>Source Files\MenuScreen</Filter>
     </ClCompile>
-    <ClCompile Include="saveScoreOverlay.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="ProjetCpp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -97,6 +94,9 @@
     </ClCompile>
     <ClCompile Include="Button.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GameOverOverlay.cpp">
+      <Filter>Source Files\GameScreen</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,7 @@
 #pragma once
 #include "cScreen.h"
 #include "Board.h"
-#include "saveScoreOverlay.h"
+#include "GameOverOverlay.h"
 
 class GameScreen : public cScreen {
 public:
