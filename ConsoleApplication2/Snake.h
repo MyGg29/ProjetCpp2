@@ -10,7 +10,7 @@ public:
 	void move();
 	void setDirection(Direction direction);
 	Direction getDirection();
-	bool isDead;
+	bool isDead = false;
 	sf::FloatRect getHeadHitbox();
 	int getLength();
 	int gridSize;

@@ -58,6 +58,7 @@ bool Board::isPaused()
 	return pause;
 }
 
+// Le Board decide si la partie est fini parce que ca pourrai être fonction d'autre choses que le snake (le temps de jeu, le nombre de pomme mangé, etc)
 bool Board::isGameOver()
 {
 	return snake.isDead;
@@ -89,8 +90,8 @@ float Board::getScore()
 
 void Board::reset()
 {
-	snake = Snake();
-	food = Food();
+	snake = Snake(windowSize,gridSize);
+	food = Food(windowSize,gridSize);
 }
 
 void Board::draw(sf::RenderTarget& target, sf::RenderStates states) const
