@@ -22,7 +22,8 @@ void Food::setNewRandomPosition()
 	food.setPosition(newXposition, newYposition);
 }
 
-void Food::draw(sf::RenderWindow *screen)
+void Food::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
-	screen->draw(food);
+	target.draw(food);
 }
+

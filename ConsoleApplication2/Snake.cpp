@@ -16,12 +16,6 @@ Snake::Snake(int windowSizeP, int gridSizeP)
 	}
 }
 
-void Snake::draw(sf::RenderWindow *screen) {
-	for (int i = 0; i < length; i++) {
-		screen->draw(body[i]);
-	}
-}
-
 void Snake::move()
 {
 	if (body.size() > 1)
@@ -109,4 +103,11 @@ sf::FloatRect Snake::getHeadHitbox()
 int Snake::getLength()
 {
 	return length;
+}
+
+void Snake::draw(sf::RenderTarget& target, sf::RenderStates states) const
+{
+	for (int i = 0; i < length; i++) {
+		target.draw(body[i]);
+	}
 }
