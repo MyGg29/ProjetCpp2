@@ -12,7 +12,7 @@ int main()
 	int screen = 0;
 	sf::RenderWindow App(sf::VideoMode(600, 600),"Snake");
 	MenuScreen s0;
-	//Screens.push_back(&s0);
+	Screens.push_back(&s0);
 	GameScreen s1;
 	Screens.push_back(&s1);
 	while (screen >= 0) {
