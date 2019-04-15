@@ -11,7 +11,7 @@ On vous propose ici une compilation avec Microsoft Visual Studio pour Windows.
 > Attention, nous vous recommandons d'installer SFML directement à la racine de votre système d'exploitation (```C:\SFML-2.5.1\``` par exemple) !
 
 Librairie supplementaire à lier -> linker -> entry  : **sfml-graphics-d.lib;sfml-window-d.lib;sfml-system-d.lib**. Il est important d'utiliser les libraries de debug *-d* pour que le build debug ce fasse corectement.
-![Linkers](https://www.sfml-dev.org/tutorials/2.5/images/start-vc-link-libs.png)
+![Linkers](https://i.imgur.com/i7RnHxB.jpg)
 
 
 Étape 4 : Checkout ou cloner le projet depuis le [repository](https://github.com/MyGg29/ProjetCpp2).
