@@ -11,5 +11,6 @@ private:
 	sf::Font police;
 	Button playButton;
 	sf::Text titleScreen;
+	void loadTitleScreen(sf::Vector2u windowSize);
 
 };

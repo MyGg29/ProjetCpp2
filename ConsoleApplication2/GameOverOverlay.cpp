@@ -2,7 +2,7 @@
 #include "GameOverOverlay.h"
 #include <iostream>
 
-GameOverOverlay::GameOverOverlay()
+GameOverOverlay::GameOverOverlay(sf::Vector2u windowSize)
 {
 	bool success = police.loadFromFile("arial.ttf");
 	if (success) {
@@ -10,21 +10,24 @@ GameOverOverlay::GameOverOverlay()
 		gameOverMessage.setString("Game Over :(");
 		gameOverMessage.setCharacterSize(30);
 		gameOverMessage.setStyle(sf::Text::Bold);
-		gameOverMessage.setFillColor(sf::Color::Red);
-		gameOverMessage.setPosition(100,280);
+		gameOverMessage.setFillColor(sf::Color::White);
+		//centers the text on the screen
+		Util::centerTransformable(gameOverMessage,gameOverMessage.getLocalBounds(),windowSize);
+
+		button.setContent("Retry ?");
+		button.setContentColor(sf::Color::Red);
+		button.setBackgroundColor(sf::Color::Blue);
+		Util::centerTransformable(button, button.getLocalBounds(), windowSize);
+		button.move(0, 60);
 	}
 	else {
 		throw std::exception("Font failled to load");
 	}
-	button.setContent("Retry ? ");
-	button.setContentColor(sf::Color::Red);
-	button.setBackgroundColor(sf::Color::Blue);
-	button.setPosition(100, 320);
 
 }
 
 void GameOverOverlay::setScoreAAfficher(sf::String score) {
-	gameOverMessage.setString("Game Over :( Score : " + score);
+	gameOverMessage.setString("Game Over :( \nScore : " + score);
 }
 
 void GameOverOverlay::handleEvent(sf::Event event) {

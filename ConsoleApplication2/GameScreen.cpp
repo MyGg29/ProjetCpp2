@@ -10,9 +10,11 @@ int GameScreen::Run(sf::RenderWindow &App)
 	bool Running = true;
 	sf::Event event;
 	sf::Clock clock;
-	GameOverOverlay overlay;
+	GameOverOverlay overlay(App.getSize());
+	sf::Sprite background = loadBackground();
 	while (Running) {
 		App.clear();
+		App.draw(background);
 		while (App.pollEvent(event)) {
 			if (event.type == sf::Event::Closed)
 				return (-1);
@@ -34,4 +36,12 @@ int GameScreen::Run(sf::RenderWindow &App)
 		App.draw(board);
 		App.display();
 	}
+}
+
+sf::Sprite GameScreen::loadBackground() {
+	if (!grassSprite.loadFromFile("grassSprite.png")) {
+		throw std::exception("Error loading grassSprite");
+	}
+	sf::Sprite backgroundSprite(grassSprite);
+	return backgroundSprite;
 }

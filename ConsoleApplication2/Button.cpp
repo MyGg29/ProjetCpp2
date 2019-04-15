@@ -12,7 +12,7 @@ Button::Button(sf::String content, sf::Color textColor, sf::Color backgroundColo
 		text.setStyle(sf::Text::Bold);
 		text.setFillColor(textColor);
 	}
-	background.setSize(sf::Vector2f(text.getLocalBounds().width + 5, text.getCharacterSize() + 5));
+	background.setSize(sf::Vector2f(text.getLocalBounds().width , text.getLocalBounds().height + 10));
 	background.setFillColor(backgroundColor);
 }
 
@@ -42,9 +42,14 @@ void Button::setBackgroundColor(sf::Color c)
 	background.setFillColor(c);
 }
 
+sf::FloatRect Button::getLocalBounds()
+{
+	return background.getLocalBounds();
+}
+
 void Button::draw(sf::RenderTarget& target, sf::RenderStates states) const {
 	states.transform *= getTransform();
-	target.draw(background, states);
+	target.draw(background,states);
 	target.draw(text, states);
 }
 

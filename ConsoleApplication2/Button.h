@@ -9,6 +9,7 @@ public:
 	void setContent(sf::String);
 	void setContentColor(sf::Color);
 	void setBackgroundColor(sf::Color);
+	sf::FloatRect getLocalBounds();
 
 private:
 	virtual void draw(sf::RenderTarget& target, sf::RenderStates states) const;

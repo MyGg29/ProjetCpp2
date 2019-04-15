@@ -1,10 +1,12 @@
 #pragma once
 #include <SFML\Graphics.hpp>
 #include "Button.h"
+#include "Util.h"
+
 class GameOverOverlay : public sf::Drawable
 {
 public:
-	GameOverOverlay();
+	GameOverOverlay(sf::Vector2u);
 	~GameOverOverlay();
 	void handleEvent(sf::Event e);
 	bool restartGame = false;

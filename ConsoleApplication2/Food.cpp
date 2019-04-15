@@ -7,7 +7,7 @@ Food::Food(int windowSizeP, int gridSizeP)
 	gridSize = gridSizeP;
 	food.setRadius(10);
 	food.setFillColor(sf::Color::Red);
-	food.setPosition(gridSize, gridSize);
+	this->setNewRandomPosition();
 }
 
 sf::FloatRect Food::getFoodHitbox()

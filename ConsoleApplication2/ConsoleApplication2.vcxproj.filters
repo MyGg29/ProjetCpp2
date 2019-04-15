@@ -36,9 +36,6 @@
     <ClInclude Include="pch.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Util.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
     <ClInclude Include="cScreen.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -66,6 +63,9 @@
     <ClInclude Include="GameOverOverlay.h">
       <Filter>Header Files\GameScreen</Filter>
     </ClInclude>
+    <ClInclude Include="Util.h">
+      <Filter>Header Files\Autre</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -92,19 +92,21 @@
     <ClCompile Include="Util.cpp">
       <Filter>Source Files\Autre</Filter>
     </ClCompile>
-    <ClCompile Include="Button.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameOverOverlay.cpp">
       <Filter>Source Files\GameScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="Button.cpp">
+      <Filter>Source Files\Autre</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Font Include="arial.ttf">
       <Filter>Resource Files</Filter>
     </Font>
-    <Font Include="..\..\..\..\Downloads\arial.ttf">
-      <Filter>Source Files</Filter>
-    </Font>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="grassSprite.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

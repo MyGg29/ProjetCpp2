@@ -9,4 +9,6 @@ public:
 	virtual int Run(sf::RenderWindow &App);
 private:
 	Board board;
+	sf::Sprite loadBackground();
+	sf::Texture grassSprite;
 };

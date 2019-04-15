@@ -1,29 +1,16 @@
 #include "pch.h"
 #include "MenuScreen.h"
+#include "Util.h"
 
 MenuScreen::MenuScreen() 
 {
-	bool success = police.loadFromFile("arial.ttf");
-	if (success) {
-		titleScreen.setFont(police);
-		titleScreen.setString("ISNAKE");
-		titleScreen.setCharacterSize(30);
-		titleScreen.setStyle(sf::Text::Bold);
-		titleScreen.setFillColor(sf::Color::Red);
-		titleScreen.setPosition(100,280);
-	}
-	else {
-		throw std::exception("Font failled to load");
-	}
-
-	playButton.setContent("Play");
-	playButton.setPosition(sf::Vector2f(200, 200));
 }
 
 int MenuScreen::Run(sf::RenderWindow &App)
 {
 	bool Running = true;
 	sf::Event event;
+	loadTitleScreen(App.getSize());
 	while (Running) {
 		App.clear();
 		while (App.pollEvent(event)) {
@@ -41,4 +28,25 @@ int MenuScreen::Run(sf::RenderWindow &App)
 	}
 
 	return -1;
+}
+
+void MenuScreen::loadTitleScreen(sf::Vector2u windowSize){
+	bool success = police.loadFromFile("arial.ttf");
+	if (success) {
+		titleScreen.setFont(police);
+		titleScreen.setString("ISNAKE");
+		titleScreen.setCharacterSize(30);
+		titleScreen.setStyle(sf::Text::Bold);
+		titleScreen.setFillColor(sf::Color::Red);
+		Util::centerTransformable(titleScreen, titleScreen.getGlobalBounds(), windowSize);
+
+	}
+	else {
+		throw std::exception("Font failled to load");
+	}
+
+	playButton.setContent("Play");
+	Util::centerTransformable(playButton, playButton.getLocalBounds(), windowSize);
+	playButton.move(0, 30);
+	
 }
